@@ -1,0 +1,36 @@
+body {
+    display: flex;
+    justify-content: center;  /* Centraliza horizontalmente */
+    align-items: center;      /* Centraliza verticalmente */
+    height: 100vh;            /* Altura total da tela */
+    margin: 0;                /* Remove margens padrão */
+    /* font-size: 30px; */
+    background: rgb(205, 147, 243);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+div {
+    border: 1px solid rgb(255, 255, 222);
+    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.5);
+    position: absolute;
+    padding: 40px;
+    text-align: center;
+    border-radius: 20px;
+    background: white;    
+}
+
+/* div:hover {
+    box-shadow: 20px 20px 40px rgba(0, 0, 0, 0.7);
+} */
+
+input {
+    width: 80%;
+    height: 20px;
+    padding: 5px;
+}
+
+button {
+    /* width: 60%; */
+    height: 30px;
+    font-size: 20px;
+}
