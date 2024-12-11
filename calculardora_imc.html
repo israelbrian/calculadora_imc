@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMC - Índice de massa corporal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div>
+        <h1 id="titulo1">Vamos calcular o seu Índice de massa corporal?</h1>
+        
+                <h3 id="frase">Qual é o seu nome?</h3>
+
+                <input type="text" id="input1">
+                <input type="number" id="input2">
+                <input type="number" id="input3">
+
+                <button id="proximo1" onclick="nomeClick ()">></button>
+
+                <button id="proximo2" onclick="alturaClick ()">></button>
+                <button id="proximo3" onclick="pesoClick ()">></button>
+
+        <!-- Digite a sua altura em centimetros: -->
+        <!-- Digite o seu peso -->
+    </div>
+
+    <script>
+        // Ocultando os elementos da 2° pergunta!
+        document.getElementById("input2").style.display = "none";
+        document.getElementById("input3").style.display = "none";
+        document.getElementById("proximo2").style.display = "none";
+        document.getElementById("proximo3").style.display = "none";
+
+        // Declaração de variaveis globais
+        var nomeInserido 
+        var alturaInserida
+        var pesoInserido 
+        var imc
+        var classificacao
+
+        function nomeClick () {
+            // Armazenando os dados 
+            nomeInserido = document.getElementById("input1").value
+            
+            // Retornando a resposta concatenando o nome inserido
+            document.getElementById("titulo1").innerHTML = "Seja bem vindo(a) " + nomeInserido + " !"
+            document.getElementById("frase").innerHTML = nomeInserido + " digite a sua altura em centimetros: "
+
+            // Ocultando o outros itens
+            document.getElementById("input1").style.display = "none";
+            document.getElementById("proximo1").style.display = "none";
+            
+            // Retornando | Alinhando os elementos que estavam ocultos
+            document.getElementById("input2").style.display = "block";
+            document.getElementById("input2").style.margin = "0 auto";
+            document.getElementById("input2").style.position = "static";
+
+            document.getElementById("proximo2").style.display = "block";
+            document.getElementById("proximo2").style.margin = "0 auto";
+            document.getElementById("proximo2").style.position = "static";
+        }
+        
+        function alturaClick () {
+            // Armazenando os dados 
+            alturaInserida = document.getElementById("input2").value
+            alturaInserida = parseInt(alturaInserida)
+
+            // Retornando a resposta concatenando o nome inserido
+            document.getElementById("frase").innerHTML = nomeInserido + " digite o seu peso: "
+
+            // Ocultando o outros itens
+            document.getElementById("input2").style.display = "none";
+            document.getElementById("proximo2").style.display = "none";
+
+            // Retornando | Alinhando os elementos que estavam ocultos
+            document.getElementById("input3").style.display = "block";
+            document.getElementById("input3").style.margin = "0 auto";
+            document.getElementById("input3").style.position = "static";
+
+            document.getElementById("proximo3").style.display = "block";
+            document.getElementById("proximo3").style.margin = "0 auto";
+            document.getElementById("proximo3").style.position = "static";
+        }
+
+        function pesoClick () {
+            // Armazenando os dados 
+            pesoInserido = document.getElementById("input3").value
+            pesoInserido = parseInt(pesoInserido)
+
+            // Ocultando o outros itens
+            document.getElementById("input3").style.display = "none";
+            document.getElementById("proximo3").style.display = "none";
+            document.getElementById("titulo1").style.display = "none";
+            
+            // Retornando o IMC concatenado com o nome
+
+            alturaInserida = alturaInserida / 100
+
+            imc = (pesoInserido / alturaInserida **2)
+                // Condição para o imc
+            if (imc < 16 ) {
+                classificacao = "Baixo peso muito grave"
+            } else if (imc < 16.99) {
+                classificacao = "Baixo peso grave"
+            } else if (imc < 18.49) {
+                classificacao ="Baixo peso"
+            } else if (imc < 24.99) {
+                classificacao ="Peso normal"
+            } else if (imc < 29.99) {
+                classificacao ="Sobrepeso"
+            } else if (imc < 34.99) {
+                classificacao ="Obesidade grau I"
+            } else if (imc < 39.99) {
+                classificacao ="Obesidade grau II"
+            } else {
+                classificacao ="Obesidade grau III"
+            }
+            
+            document.getElementById("frase").innerHTML = nomeInserido + " você possui o índice de massa corporal igual a " 
+            + imc + ", sendo classificado como: " + classificacao
+            
+        }
+        
+    </script>
+</body>
+</html>
